@@ -1,0 +1,19 @@
+@tailwind components;
+
+@layer components {
+    .layout{
+        @apply min-h-screen w-full flex flex-col mx-auto
+    }
+}
+
+.gradient-bg{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: -117px;
+    top: -171px;
+    border-radius: 500px;
+    background: linear-gradient(138deg, #FFF -7.09%, rgba(255, 255, 255, 0.80) -7.08%, rgba(217, 217, 217, 0.00) 94.12%);
+    filter: blur(200px);
+    z-index: -1;
+}

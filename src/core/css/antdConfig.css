@@ -1,0 +1,131 @@
+
+.ant-dropdown-menu{
+    border-radius: 0 !important;
+}
+
+/* carousel */
+.home .slick-slide>div{
+    display: flex;
+    justify-content: center;
+    margin-inline: 8px;
+}
+
+
+.slick-list {
+    /*overflow-y: visible !important;*/
+    /*overflow: hidden;*/
+    max-height: 440px !important;
+}
+
+.slick-slider .slick-dots {
+    /*background-color: red;*/
+    display: flex !important;
+    align-items: center !important;;
+    justify-content: center !important;
+    gap: 16px;
+    z-index: 10;
+    height: 10px !important;
+    padding: 0 !important;
+}
+
+.ant-carousel .slick-dots-bottom {
+    bottom: -24px !important;
+}
+
+.slick-slider .slick-dots li {
+    border: 1px solid var(--cC1);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-inline: 0;
+    opacity: 100%;
+    overflow: hidden;
+}
+
+.slick-slider .slick-dots li button {
+    background-color: transparent !important;
+    width: 100%;
+    height: 100%;
+}
+
+.slick-slider .slick-dots li.slick-active {
+    background-color: var(--cC1);
+    height: 10px;
+    width: 36px;
+    border-radius: 10px;
+    margin-inline: 0;
+    opacity: 100%;
+}
+
+/* carousel arrows */
+.slick-arrow{
+    color: var(--cC1) !important;
+    font-size: 20px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border: 1px solid var(--cC1) !important;
+    border-radius: 100%;
+    z-index: 10;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.slick-arrow::before{
+    content: "" !important;
+}
+
+.slick-prev{
+    inset-inline-start: -60px !important;
+    padding-right: 4px !important;
+}
+
+.slick-next{
+    inset-inline-end: -60px !important;
+    padding-left: 4px !important;
+}
+
+label{
+    font-family: "Roboto", sans-serif !important;
+}
+
+/*collapse*/
+.ant-collapse,.ant-collapse-item, .ant-collapse-content{
+    border: none !important;
+}
+
+.ant-collapse, .ant-collapse-item{
+    background: transparent !important;
+}
+
+.ant-collapse-content-box{
+    padding: 0 !important;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+.ant-collapse-header{
+    display: none !important;
+}
+/*modal*/
+.ant-modal-content{
+    padding: 40px !important;
+}
+
+/*checkbox*/
+.ant-checkbox{
+    align-self: flex-start !important;
+    margin-top: 4px;
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1023.9px) {
+    .slick-prev{
+        inset-inline-start: -15px !important;
+    }
+
+    .slick-next{
+        inset-inline-end: -15px !important;
+    }
+}

@@ -1,0 +1,27 @@
+<svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 3">
+<g id="Ellipse 3">
+<circle cx="85" cy="85" r="85" fill="#FFCCC7"/>
+<circle cx="85" cy="85" r="85" stroke="black"/>
+</g>
+<g id="Ellipse 1">
+<circle cx="84.499" cy="85.5" r="72.5" fill="#FFA39E"/>
+<circle cx="84.499" cy="85.5" r="72.5" stroke="black"/>
+</g>
+<circle id="Ellipse 2" cx="85" cy="85" r="54.5" fill="#FAFAFA" stroke="#FF7875" stroke-width="11"/>
+<g id="close">
+<mask id="mask0_191_13564" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="47" y="47" width="77" height="76">
+<rect id="Bounding box" x="47.001" y="47" width="76" height="76" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_191_13564)">
+<path id="close_2" d="M67.2693 107.167L62.8359 102.733L80.5693 85.0002L62.8359 67.2668L67.2693 62.8335L85.0026 80.5668L102.736 62.8335L107.169 67.2668L89.4359 85.0002L107.169 102.733L102.736 107.167L85.0026 89.4335L67.2693 107.167Z" fill="url(#paint0_linear_191_13564)"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_191_13564" x1="85.0026" y1="62.8335" x2="85.0026" y2="107.167" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF4D4F"/>
+<stop offset="1" stop-color="#FF4D4F" stop-opacity="0.5"/>
+</linearGradient>
+</defs>
+</svg>

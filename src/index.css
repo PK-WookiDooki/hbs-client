@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama:wght@300;400;500&family=Roboto:wght@400;500;700&display=swap');
+
+@import "core/css/colors.css";
+@import "core/css/antdConfig.css";
+@import "components/cards/cards.css";
+@import "layout/layout.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    /*address title & desc */
+    .common-tlt{
+        @apply text-c43 uppercase;
+    }
+
+    .common-desc{
+        @apply text-lg text-c26 font-medium;
+    }
+
+    .base-btn{
+        @apply h-10 px-4 rounded-sm border duration-300 hover:opacity-80 font-sans
+    }
+
+    .border-btn{
+        @apply base-btn border-c59 text-c26
+    }
+
+    .color-btn{
+        @apply base-btn border-cC1 bg-cC1 text-cFA
+    }
+
+/*    buttons from hero section selectebox*/
+    .action-btn{
+        @apply text-xl w-8 h-8 rounded-full flex items-center justify-center border-2 border-c14 text-c14 disabled:border-cD9 disabled:text-cD9 disabled:cursor-not-allowed duration-300
+    }
+
+/*    reservation form*/
+    .rf-tlt{
+        @apply text-2xl font-bold text-c26 font-tnr
+    }
+
+}
+
+body{
+    max-width: 1920px;
+    width: 100%;
+    background-color: var(--cFA);
+    margin: 0 auto;
+}
+
+
+/*section title*/
+.sec-tlt{
+    text-transform: uppercase;
+    position: relative;
+    font-family: "Times New Roman", Serif;
+    padding-top: 14px;
+    margin-bottom: 48px;
+}
+
+.sec-tlt h2{
+    font-size: 48px;
+    opacity: 15%;
+    color: var(--cFA);
+    text-shadow: -1px -1px 0 var(--cC1), 1px -1px 0 var(--cC1),-1px 1px 0 var(--cC1),1px 1px 0 var(--cC1);
+    text-align: center;
+}
+
+.sec-tlt h3{
+    font-size: 30px;
+    color: var(--cC1);
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: max-content;
+}
+
+.ribbon{
+    position: absolute;
+    min-width: max-content;
+    text-align: center;
+    top: 30px;
+    right: -16px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.ribbon::after{
+    content: "";
+    position: absolute;
+    border-top : 16px solid var(--cF5);
+    border-right : 16px solid transparent;
+    bottom: -17px;
+    right: 0;
+}
+
+/*phone input*/
+.PhoneInput{
+    height: 40px;
+    background: white;
+    padding-left: 16px;
+    border-radius: 2px;
+    gap: 4px;
+    border: 1px solid var(--cD9);
+}
+
+.PhoneInput input{
+    height: 100%;
+    outline: none;
+    padding: 0 12px;
+    /*font-size: 16px;*/
+    background: transparent;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.PhoneInput input::placeholder{
+    color : var(--cD9)
+}
+
+.ant-col:has(#phone_help) .PhoneInput{
+    border-color: #ff4d4f;
+}
+
+/* hero header */
+.common-text {
+    font-variant: all-small-caps;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Times New Roman", Serif;
+}
+
+/* custom box shadow */
+.box-shadow{
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px)  {
+    .sec-tlt{
+        margin-bottom: 24px;
+    }
+
+    .sec-tlt h2{
+        font-size: 40px;
+    }
+
+    .sec-tlt h3{
+        font-size: 32px;
+        bottom: 0px;
+    }
+}
+
