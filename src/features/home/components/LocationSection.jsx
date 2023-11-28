@@ -4,7 +4,6 @@ const LocationSection = () => {
     return (
         <section className={` lg:px-[10.83%] md:px-[4.16vw] max-w-[1440px] w-full mx-auto `} >
             <SecTitle title={"explore our location"} />
-
             <div className={`flex flex-col lg:flex-row items-stretch gap-8`} >
                 <div className={` lg:max-w-[360px] w-full flex lg:flex-col md:flex-row flex-col gap-10 `} >
                     <div className={`flex flex-col gap-10 w-full `} >

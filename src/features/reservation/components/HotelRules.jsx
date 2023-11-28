@@ -10,20 +10,20 @@ const HotelRules = () => {
 
     return (
         <section>
-            <h2 className={`rf-tlt mb-4`} >Hotel Rules</h2>
-            <p className={`text-xl text-c43 mb-6`}>Nextel Mandalay takes special requests :</p>
-            <div className={`py-4 px-6 box-shadow rounded`} >
-                <Rule icon={"login"} title={"check-in"} border={true} content={<div className={`w-full flex flex-col gap-4 text-c26 `}>
+            <h2 className={`rf-tlt lg:mb-4 mb-2`} >Hotel Rules</h2>
+            <p className={`lg:text-xl md:text-base text-c43 mb-6`}>Nextel Mandalay takes special requests :</p>
+            <div className={`lg:py-4 lg:px-6 md:py-3 md:px-4 box-shadow rounded`} >
+                <Rule icon={"login"} title={"check-in"} border={true} content={<div className={`w-full lg:text-base md:text-sm flex flex-col gap-4 text-c26 `}>
                     <p> From 2 : 00 PM </p>
                     <p className={`font-medium`}>Guests are required to show a photo identification and credit card upon check-in. </p>
                 </div>}  />
                 <Rule icon={"logout"} title={"check-out"} border={true} content={
-                    <p className={`w-full text-c26`}> From 12 : 00 PM </p>
+                    <p className={`w-full lg:text-base md:text-sm text-c26`}> From 12 : 00 PM </p>
                     }  />
                 <Rule icon={"info"} title={"payment & cancellation"} border={true} content={
-                    <p className={`w-full font-medium text-c26`}> Payment must be made within 24 hours after reservation! Otherwise the reservation will be cancelled.  </p>
+                    <p className={`w-full lg:text-base md:text-sm font-medium text-c26`}> Payment must be made within 24 hours after reservation! Otherwise the reservation will be cancelled.  </p>
                 }  />
-                <Rule icon={"account_child"} title={"children & beds"} border={true} content={<div>
+                <Rule icon={"account_child"} title={"children & beds"} border={true} content={<div className={`w-full`}>
                     <h3 className={`text-c26 font-medium mb-4`} > Child policies </h3>
                     <ul className={`flex flex-col gap-1`}>
                         {
@@ -32,10 +32,10 @@ const HotelRules = () => {
                     </ul>
                 </div>}  />
                 <Rule icon={"pets"} title={"pets"} border={true} content={
-                    <p className={`w-full text-c43`}> Pets are not allowed. </p>
+                    <p className={`w-full lg:text-base md:text-sm text-c43`}> Pets are not allowed. </p>
                 }  />
                 <Rule icon={"credit_card"} title={"payment methods"} content={
-                    <p className={`w-full text-c43`}> If you made a reservation, we have added our bank account information to which payment will be made. </p>
+                    <p className={`w-full lg:text-base md:text-sm text-c43`}> If you made a reservation, we have added our bank account information to which payment will be made. </p>
                 }  />
             </div>
         </section>
@@ -43,10 +43,10 @@ const HotelRules = () => {
 };
 
 const Rule = ({icon, title, content, border}) => {
-    return <div className={`py-6 flex items-start gap-6 ${border ? "border-b border-cD9 " : ""} `}>
-        <div className={`flex items-center gap-3 text-c26 w-full`} >
+    return <div className={`lg:py-6 md:py-3 flex items-start gap-6 ${border ? "border-b border-cD9 " : ""} `}>
+        <div className={`flex items-center lg:gap-3 md:gap-1 text-c26 w-full md:max-w-[155px]`} >
             <span className={`material-symbols-rounded`}> {icon}</span>
-            <p className={`font-medium capitalize`} > {title} </p>
+            <p className={`font-medium capitalize lg:text-base md:text-sm`} > {title} </p>
         </div>
         {content}
     </div>

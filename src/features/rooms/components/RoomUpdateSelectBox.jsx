@@ -65,8 +65,8 @@ const RoomUpdateSelectBox = ({searchedData}) => {
 
     return (
        <section className={`absolute flex flex-col items-center top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 `} >
-           <h2 className={`common-text text-[80px] text-cFA leading-[96px] `}> enjoy your own holiday </h2>
-           <section className={`flex z-10 gap-6 p-6 bg-white/10 backdrop-blur-xl`} >
+           <h2 className={`common-text lg:text-[80px] md:text-[60px] lg:leading-[96px] text-cFA `}> enjoy your own holiday </h2>
+           <section className={`flex z-10 lg:gap-6 lg:p-6 md:gap-4 md:p-4 bg-white/10 backdrop-blur-xl`} >
                <div>
                    <DatePicker.RangePicker
                        defaultValue={[searchedOpt.startDate, searchedOpt.endDate]}

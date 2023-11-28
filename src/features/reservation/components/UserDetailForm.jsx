@@ -5,7 +5,7 @@ import flags from "react-phone-number-input/flags";
 import {useDispatch, useSelector} from "react-redux";
 import {setUserInfo} from "@/features/reservation/formSlice.js";
 
-const UserDetailInput = ({form}) => {
+const UserDetailForm = () => {
 
     const {userInfo} = useSelector(state => state.formSlice)
     const dispatch = useDispatch();
@@ -16,11 +16,17 @@ const UserDetailInput = ({form}) => {
         dispatch(setUserInfo({...userInfo, [name] : e.target.value }))
     }
 
+    const phoneValidator = async (rule, value) => {
+        if (!isValidPhoneNumber(value)) {
+            throw new Error("Enter valid phone number!")
+        }
+    }
+
     return (
         <section>
             <h2 className={`rf-tlt mb-6`}> Contact Details </h2>
-                <div className={`p-6 rounded box-shadow `} >
-                    <h3 className={`text-xl font-medium text-c43 mb-6 `}> Let us know who you are.</h3>
+                <div className={`lg:p-6 p-4 rounded box-shadow `} >
+                    <h3 className={`lg:text-xl text-base font-medium text-c43 mb-6 `}> Let us know who you are.</h3>
                     <Form.Item validateDebounce={500} label={"Full Name"} name={'guestName'} rules={[
                         {required : true, message : "Please provide your name!"},
                     ]} initialValue={guestName} >
@@ -32,14 +38,7 @@ const UserDetailInput = ({form}) => {
                         <Input type={"email"} placeholder={"example@gmail.com"} onChange={(e) => onChange(e, "email")} />
                     </Form.Item>
                     <Form.Item validateDebounce={500} label={"Phone"} name={'phone'} rules={[
-                        {required : true, message : "Please provide your phone  number!"}, () => ({
-                            validator(_, value) {
-                                if (isValidPhoneNumber(value)) {
-                                    return Promise.resolve();
-                                }
-                                return Promise.reject(new Error('Please enter valid phone number!'));
-                            },
-                        }),
+                        {required : true, message : "Please provide your phone  number!"}, {validator: phoneValidator}
                     ]} initialValue={phone} >
                             <PhoneInput flags={flags} defaultCountry={"MM"} onChange={(value) => dispatch(setUserInfo({...userInfo, phone : value}))} value={phone} smartCaret={true} placeholder={"Enter your phone number"}/>
                     </Form.Item>
@@ -51,4 +50,4 @@ const UserDetailInput = ({form}) => {
     );
 };
 
-export default UserDetailInput;
+export default UserDetailForm;

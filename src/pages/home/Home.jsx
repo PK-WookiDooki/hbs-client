@@ -1,4 +1,4 @@
-import {Hero, Location, RoomsList, Services} from "@/features/index.js";
+import {Benefits, Hero, Location, RoomsList, Services} from "@/features/index.js";
 import {useLocation} from "react-router";
 import {useEffect} from "react";
 import {useDispatch} from "react-redux";
@@ -20,6 +20,7 @@ const Home = () => {
         <section className={` flex flex-col lg:gap-[100px] md:gap-[60px] pb-[60px] overflow-hidden`}>
             <Hero/>
             <RoomsList/>
+            <Benefits/>
             <Location/>
             <Services/>
         </section>

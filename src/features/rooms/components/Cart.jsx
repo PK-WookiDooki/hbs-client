@@ -12,7 +12,7 @@ const Cart = ({searchedData, adult, child, room}) => {
             return alert("There is no rooms selected!")
         }
 
-        nav("/reservation", {state : searchedData })
+        nav("/reservation", {state : searchedData, replace: true })
     }
 
     return (

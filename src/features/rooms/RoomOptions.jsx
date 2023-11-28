@@ -29,12 +29,12 @@ const RoomsList = () => {
                 <BgCarousel/>
                 <RoomUpdateSelectBox searchedData={searchedOpt} />
             </div>
-            <div className={` lg:px-[10.83%] md:px-[4.16vw] px-5 max-w-[1440px] mx-auto w-full mt-14 lg:pb-12 pb-36 relative `} >
+            <div className={` lg:px-[10.83%] md:px-[4.16vw] px-5 max-w-[1440px] mx-auto w-full mt-14 pb-12 relative `} >
                 <AdvertText/>
-                <div className={`flex flex-col md:flex-row items-start gap-6 mt-6 `} >
+                <div className={`flex flex-col lg:flex-row items-start gap-6 mt-6 `} >
                     <div className={`flex flex-col gap-6 w-full `} >
                         {
-                            rooms?.map(r => <RoomCardLarge key={r?.type.id} room={r.type} selectedRoomsAmount={room} />)
+                            rooms?.map(r => <RoomCardLarge key={r?.type.id} room={r.type} selectedRoomsAmount={room} availableRooms={r.available} />)
                         }
                     </div>
                     <Cart searchedData={searchParams.toString()} adult={adult} child={child} />

@@ -8,7 +8,7 @@ const rooms = [
             name : "superior room",
             pricePerNight : 199,
             size : 50,
-            totalRoom : 4,
+            totalRoom : 12,
             maximumCapacity : 1,
             poster : srPoster,
             backdrop : srBackdrop,
@@ -126,7 +126,7 @@ const rooms = [
             name : "deluxe room",
             pricePerNight : 230,
             size : 50,
-            totalRoom : 3,
+            totalRoom : 10,
             maximumCapacity : 2,
             poster : drPoster,
             backdrop:  drBackdrop,
@@ -472,7 +472,7 @@ const rooms = [
                     id : 20, icon: "coffee_maker", name: "coffee/tea maker"
                 }
             ]
-        }, available:  6
+        }, available:  3
     },
     {
         type :   {
@@ -480,7 +480,7 @@ const rooms = [
             name : "presidential suite room",
             pricePerNight : 990,
             size : 50,
-            totalRoom : 3,
+            totalRoom : 6,
             maximumCapacity : 2,
             poster : psrPoster,
             backdrop: psrBackdrop,
@@ -590,7 +590,7 @@ const rooms = [
                     id : 20, icon: "coffee_maker", name: "coffee/tea maker"
                 }
             ]
-        }, available : 10
+        }, available : 4
     },
     {
         type : {
@@ -598,7 +598,7 @@ const rooms = [
             name : "royal suite room",
             pricePerNight : 1199,
             size : 50,
-            totalRoom : 6,
+            totalRoom : 10,
             maximumCapacity : 2,
             poster : rsrPoster,
             backdrop: rsrBackdrop,

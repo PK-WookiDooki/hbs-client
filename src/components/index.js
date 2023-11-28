@@ -18,6 +18,7 @@ export {default as ActionBtn} from "./buttons/ActionButton.jsx"
 //route guards
 export {default as RoomsGuard} from "./guards/RoomRouteGuard.jsx"
 export {default as ReservationGuard} from "./guards/ReservationRGuard.jsx"
+export {default as RDGuard} from "./guards/RDGuard.jsx"
 
 //loader
 export {default as Loader} from "./loaders/Loader.jsx"

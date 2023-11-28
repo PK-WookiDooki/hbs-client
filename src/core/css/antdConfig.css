@@ -3,6 +3,11 @@
     border-radius: 0 !important;
 }
 
+.ant-select-selector{
+    border-color: var(--c8C) !important;
+    border-radius: 2px !important;
+}
+
 /* carousel */
 .home .slick-slide>div{
     display: flex;
@@ -127,5 +132,14 @@ label{
 
     .slick-next{
         inset-inline-end: -15px !important;
+    }
+
+    /*modal*/
+    .ant-modal-content{
+        padding: 24px !important;
+    }
+
+    label{
+        font-size: 14px !important;
     }
 }

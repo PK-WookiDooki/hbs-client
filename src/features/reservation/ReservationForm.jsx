@@ -2,7 +2,7 @@ import NoticeText from "@/features/reservation/components/NoticeText.jsx";
 import BookingSummary from "@/features/reservation/components/BookingSummary.jsx";
 import {Link, Navigate, useLocation, useNavigate} from "react-router-dom";
 import {Form} from "antd";
-import UserDetailInput from "@/features/reservation/components/UserDetailInput.jsx";
+import UserDetailForm from "@/features/reservation/components/UserDetailForm.jsx";
 import SpecialRequestInput from "@/features/reservation/components/SpecialRequestInput.jsx";
 import HotelRules from "@/features/reservation/components/HotelRules.jsx";
 import ReserveConfirmationModal from "@/features/reservation/components/ReserveConfirmationModal.jsx";
@@ -16,7 +16,11 @@ const ReservationForm = () => {
 
     const {totalRooms : totalRoom, totalAmount : totalCost, selectedRooms} = useSelector(state => state.cartSlice)
 
-    const roomTypes = selectedRooms?.map(room => room.name)
+    const roomTypes = selectedRooms?.map(room => {
+        const rooms = new Array(room.totalRooms).fill(null).map(r => room.name)
+
+        return rooms;
+    }).flat();
 
     const location = useLocation();
     const searchedData = location?.state;
@@ -74,17 +78,18 @@ const ReservationForm = () => {
                 ...formData, numberOfGuest, totalRoom, totalCost, checkIn, checkOut, lengthOfStay, selectedRooms : roomTypes
             }
             console.log(reqData)
-            dispatch(setUserInfo({
-                guestName : "",
-                email : "",
-                phone : "",
-                address : "",
-                specialRequest : ""
-            }))
+            // dispatch(setUserInfo({
+            //     guestName : "",
+            //     email : "",
+            //     phone : "",
+            //     address : "",
+            //     specialRequest : ""
+            // }))
             if(isLoading === false){
-                nav("/result")
+                nav("/receipt", {state : {
+                    formData, searchedData
+                    }, replace: true})
             }
-
         }catch (error){
             throw new Error(error)
         }
@@ -102,12 +107,12 @@ const ReservationForm = () => {
     }, [isLoading]);
 
     return (
-        <section className={`lg:px-[10.83%] md:px-[4.16vw] max-w-[1440px] mx-auto w-full mt-14 pb-10 `} >
+        <section className={`lg:px-[10.83%] md:px-[4.16vw] max-w-[1440px] mx-auto w-full lg:mt-14 md:mt-5 pb-10 `} >
             <NoticeText/>
             <div className={`mt-8 flex gap-6`} id={"form"} >
                 <BookingSummary searchedData={searchedData} />
                 <Form form={form} onFinish={onReserve} onFinishFailed={onReserveFailed} layout={"vertical"} className={` w-full !font-sans flex flex-col gap-6 `} >
-                    <UserDetailInput form={form}/>
+                    <UserDetailForm/>
                     <SpecialRequestInput/>
                     <HotelRules/>
                     <div className={`flex justify-end gap-9`}>

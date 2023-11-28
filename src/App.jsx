@@ -1,8 +1,8 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import MainLayout from "@/layout/MainLayout.jsx";
 import {HomePage, PNFPage, Result} from "@/pages/index.js";
-import {AllRooms, Reservation, RoomDetail} from "@/features/index.js";
-import { ReservationGuard, RoomsGuard, ScrollToTop} from "@/components/index.js";
+import {AllRooms, Reservation, ReservationDetail, RoomDetail} from "@/features/index.js";
+import {RDGuard, ReservationGuard, RoomsGuard, ScrollToTop} from "@/components/index.js";
 import {ConfigProvider} from "antd";
 
 const App = () => {
@@ -40,6 +40,9 @@ const App = () => {
                             </ReservationGuard>
                         }>
                         </Route>
+                        <Route path={"/receipt"} element={<RDGuard>
+                            <ReservationDetail/>
+                        </RDGuard> } />
                             <Route path={"/result"} element={<Result/>} />
                     </Route>
                     <Route path={"*"} element={<PNFPage/>}  />

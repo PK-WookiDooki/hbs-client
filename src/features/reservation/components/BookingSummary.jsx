@@ -2,9 +2,9 @@ import CartDropdown from "@/components/dropdown/CartDropdown.jsx";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
 import dayjs from "dayjs";
-const BookingSummary = ({searchedData}) => {
+const BookingSummary = ({searchedData, isReserved}) => {
 
-    const {totalAmount} = useSelector(state => state.cartSlice)
+    const {totalAmount, totalRooms, selectedRooms} = useSelector(state => state.cartSlice)
 
     const dateFormat = "DD MMM YYYY"
 
@@ -20,10 +20,14 @@ const BookingSummary = ({searchedData}) => {
 
 
     return (
-        <section className={`max-w-[360px] w-full flex flex-col gap-6 sticky top-20 self-start `} >
-            <h2 className={`rf-tlt`} >Booking Summary</h2>
+        <section className={`lg:max-w-[360px] md:max-w-[279px] w-full flex flex-col gap-6 ${isReserved ? "" : "sticky top-20 self-start"} `} >
+            <h2 className={`rf-tlt ${isReserved ? "hidden" : "block"} `} >Booking Summary</h2>
             <div className={` rounded overflow-hidden box-shadow`}>
-                <h3 className={`text-cFA px-6 py-3 bg-cC1 text-xl font-medium `} >Your booking details</h3>
+                {
+                    isReserved ? <h3 className={`text-c26 font-medium lg:text-xl bg-white px-6 py-3 border-b border-cD9 `}>
+                        Reservation Detail
+                    </h3> : <h3 className={`text-cFA px-6 py-3 bg-cC1 lg:text-xl font-medium `} >Your booking details</h3>
+                }
                 <div className={`p-6 bg-white `} >
                     <div className={`flex items-stretch gap-6`} >
                         <CheckInOut title={"Check-in"} date={startDate} time={"02 : 00"} />
@@ -34,18 +38,29 @@ const BookingSummary = ({searchedData}) => {
                         <p>Total length of stay :</p>
                         <p className={`font-medium mt-2`}> {totalNight} { totalNight > 1 ? "Nights" : "Night" }  </p>
                     </div>
-                    <CartDropdown adult={adult} child={child} />
-                    <Link to={`/rooms?${searchedData}`} className={`text-c18 underline underline-offset-2 mt-3 block w-fit`} >Change your selection</Link>
+                    {
+                        isReserved ?
+                            <div className={`flex flex-col`} >
+                                <p>Your selections </p>
+                                <p className={`font-medium capitalize mb-2`} > {totalRooms} rooms  for {adult || 0} adults {parseInt(child) > 0 ? `& ${child} children` : ""} </p>
+                                {selectedRooms?.map(room => <div key={room.id} className={`flex items-center justify-between`}>
+                                    <p> {room.totalRooms} x <span className={`capitalize`}> {room.name}</span></p>
+                                </div>)}
+                            </div> : <CartDropdown adult={adult} child={child} />
+                    }
+                    {
+                        isReserved ? "" : <Link to={`/rooms?${searchedData}`} className={`text-c18 underline underline-offset-2 mt-3 block w-fit`} >Change your selection</Link>
+                    }
                 </div>
             </div>
             <div className={`rounded overflow-hidden box-shadow`} >
-                <h3 className={`text-c26 px-6 py-2 bg-white text-xl font-medium`} >Your price summary</h3>
-                <div className={`p-6 py-3 bg-cE6 text-c26`} >
-                    <div className={`flex items-center justify-between text-3xl font-medium mb-2`}>
+                <h3 className={`text-c26 px-6 py-2 bg-white lg:text-xl font-medium`} >Your price summary</h3>
+                <div className={`p-6 py-3 ${isReserved ? "bg-[#E6FEDB]" : "bg-cE6"}  text-c26`} >
+                    <div className={`flex items-center justify-between lg:text-3xl md:text-2xl font-medium mb-2`}>
                         <p>Total</p>
                         <p className={`font-tnr font-bold`} > USD {totalAmount} </p>
                     </div>
-                    <p className={`font-sm`}>Included in price : 5% tax and 10% service charge</p>
+                    <p className={`lg:text-sm md:text-xs`}>Included in price : 5% tax and 10% service charge.</p>
                 </div>
             </div>
         </section>
@@ -55,9 +70,9 @@ const BookingSummary = ({searchedData}) => {
 
 const CheckInOut = ({title, date, time}) => {
     return <div className={`max-w-[131px] w-full text-sm`} >
-        <p className={`mb-2 text-c43`} > {title} </p>
-        <p className={`text-c26 font-medium text-xl`} > {date} </p>
-        <p className={`text-c59`} > From {time} PM </p>
+        <p className={`mb-2 text-c43 lg:text-base text-sm`} > {title} </p>
+        <p className={`text-c26 font-medium lg:text-xl`} > {date} </p>
+        <p className={`text-c59 lg:text-base md:text-xs`} > From {time} PM </p>
     </div>
 }
 

@@ -7,7 +7,7 @@ const RoomCardLarge = ({room, selectedRoomsAmount, availableRooms}) => {
 
     const {selectedRooms, totalRooms} = useSelector(state => state.cartSlice);
 
-    const {roomType, pricePerNight, id, backdrop, amenities, totalRoom, size, maximumCapacity} = room;
+    const {name, pricePerNight, id, backdrop, amenities, totalRoom, size, maximumCapacity} = room;
 
     const isSelectedRoom = selectedRooms?.find(room => room.id === id);
 
@@ -28,7 +28,7 @@ const RoomCardLarge = ({room, selectedRoomsAmount, availableRooms}) => {
         return result
     }
 
-    const roomsOptions = new Array(totalRoom + 1).fill(null).map((_, index) => {
+    const roomsOptions = new Array(availableRooms + 1).fill(null).map((_, index) => {
         return {
             key : index,
             label : String(index),
@@ -38,21 +38,25 @@ const RoomCardLarge = ({room, selectedRoomsAmount, availableRooms}) => {
     })
 
     return (
-        <section className={` border border-cD9 lg:max-w-[838px] w-full box-shadow `}>
-            <h2 className={`px-6 py-4 font-tnr text-2xl capitalize`}> {roomType} </h2>
+        <section className={` border border-cD9 max-w-[838px] w-full box-shadow `}>
+            <h2 className={`px-6 py-4 font-tnr text-2xl capitalize`}> {name} </h2>
             <div className={` bg-cD9 p-4 relative `} >
 
                 {/*ribbon*/}
                 <div className={`ribbon`} >
                     <p className={` font-tnr font-bold text-2xl text-c14 bg-cFA py-2 px-3 rounded-t `} > USD {pricePerNight} <span className={` text-base font-grm font-normal `}> / per night </span> </p>
-                    <p className={`text-cFA font-grm bg-cF5 rounded-bl `} > Only <span className={`font-tnr text-xl font-bold`} >{totalRoom}</span> rooms left </p>
+                    <p className={`text-cFA font-grm bg-cF5 rounded-bl `} > Only <span className={`font-tnr text-xl font-bold`} >{availableRooms}</span> rooms left </p>
                 </div>
 
-                <img src={backdrop} alt={roomType || "Room Image"}  className={`w-full object-cover`} />
+                <div className={`relative`}>
+                    <img src={backdrop} alt={name || "Room Image"}  className={`w-full object-cover`} />
+                    <div className={`absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/40 text-whtie z-[2] `}> Sold Out </div>
+                </div>
+
                 <div className={`mt-2 flex gap-2  ` } >
                     {/*room details*/}
-                    <div className={` lg:max-w-[246px] w-full flex flex-col gap-2 `} >
-                        <h3 className={`capitalize font-tnr text-xl font-bold text-cFA bg-cC1 p-2`} > room details </h3>
+                    <div className={` max-w-[246px] w-full flex flex-col gap-2 `} >
+                        <h3 className={`capitalize font-tnr lg:text-xl font-bold text-cFA bg-cC1 p-2`} > room details </h3>
                         <div className={` flex-1 flex flex-col gap-2 bg-cFA p-2`} >
                                 <span className={`text-c26 text-sm`}>Your room includes : </span>
                                 <div className={`flex flex-col gap-2`} >
@@ -65,8 +69,8 @@ const RoomCardLarge = ({room, selectedRoomsAmount, availableRooms}) => {
                     </div>
 
                     {/*payment & cancellation*/}
-                    <div className={` lg:max-w-[246px] w-full flex flex-col gap-2`} >
-                        <h3 className={`capitalize font-tnr text-xl font-bold text-cFA bg-cC1 p-2`} > Payment & Cancellation </h3>
+                    <div className={` max-w-[246px] w-full flex flex-col gap-2`} >
+                        <h3 className={`capitalize font-tnr lg:text-xl font-bold text-cFA bg-cC1 p-2`} > Payment & Cancellation </h3>
                         <div className={`bg-cFA p-2 flex-1 `} >
                             <div>
                                 <p className={`text-c26 font-tnr font-bold mb-2`}> Payment </p>
@@ -84,8 +88,8 @@ const RoomCardLarge = ({room, selectedRoomsAmount, availableRooms}) => {
                     </div>
 
                 {/*  Pricing  */}
-                    <div className={` lg:max-w-[172px] w-full flex flex-col gap-2`} >
-                        <h3 className={`font-tnr text-xl font-bold text-cFA bg-cC1 p-2`} > Price for (2) night </h3>
+                    <div className={` max-w-[172px] w-full flex flex-col gap-2`} >
+                        <h3 className={`font-tnr lg:text-xl font-bold text-cFA bg-cC1 p-2`} > Price for (2) night </h3>
                         <div className={`bg-cFA p-2 flex-1 `} >
                            <p className={`text-c14 font-tnr text-xl font-bold`} >
                                USD {pricePerNight * 2}
@@ -95,8 +99,8 @@ const RoomCardLarge = ({room, selectedRoomsAmount, availableRooms}) => {
                     </div>
 
                     {/*  rooms amount  */}
-                    <div className={` lg:max-w-[118px] w-full flex flex-col gap-2`} >
-                        <h3 className={`font-tnr text-xl font-bold text-cFA bg-cC1 p-2`} > Select room </h3>
+                    <div className={` max-w-[118px] w-full flex flex-col gap-2`} >
+                        <h3 className={`font-tnr lg:text-xl font-bold text-cFA bg-cC1 p-2`} > Select room </h3>
                         <div className={`bg-cFA p-2 flex-1 `} >
                             <Select options={roomsOptions} onChange={onRoomAdded} className={`w-full z-10 `} value={isSelectedRoom?.totalRooms || 0} />
                         </div>
